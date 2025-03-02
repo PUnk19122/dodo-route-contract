@@ -155,8 +155,6 @@ contract DODOFeeRouteProxy is Ownable {
     }
 
     // ============ Swap ============
-
-
     /// @notice Call external black box contracts to finish a swap
     /// @param approveTarget external swap approve address
     /// @param swapTarget external swap address
@@ -232,7 +230,6 @@ contract DODOFeeRouteProxy is Ownable {
 
         emit OrderHistory(fromToken, toToken, msg.sender, fromTokenAmount, receiveAmount);
     }
-
     /// @notice linear version, describes one token path with one pool each time
     /// @param mixAdapters adapter address array, record each pool's interrelated adapter in order
     /// @param mixPairs pool address array, record pool address of the whole route in order
@@ -296,7 +293,6 @@ contract DODOFeeRouteProxy is Ownable {
             }
             directions = directions >> 1;
         }
-
         // calculate toToken amount
         if(_toToken != _ETH_ADDRESS_) {
             receiveAmount = IERC20(_toToken).universalBalanceOf(address(this)) - (
@@ -386,7 +382,6 @@ contract DODOFeeRouteProxy is Ownable {
             receiveAmount
         );
     }
-
     //====================== internal =======================
     /// @notice multiSwap process
     function _multiSwap(
